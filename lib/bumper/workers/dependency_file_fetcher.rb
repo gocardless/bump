@@ -35,6 +35,7 @@ module Workers
     def file_fetcher_for(language)
       case language
       when "ruby" then DependencyFileFetchers::RubyDependencyFileFetcher
+      when "node" then DependencyFileFetchers::NodeDependencyFileFetcher
       else raise "Invalid language #{language}"
       end
     end

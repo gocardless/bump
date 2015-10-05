@@ -1,20 +1,19 @@
 require "spec_helper"
 require "bumper/dependency"
-require "bumper/update_checkers/ruby_update_checker"
+require "bumper/update_checkers/node_update_checker"
 
-RSpec.describe UpdateCheckers::RubyUpdateChecker do
+RSpec.describe UpdateCheckers::NodeUpdateChecker do
   before do
-    allow(Gem).
-      to receive(:latest_version_for).
-      with(dependency_name).
-      and_return(Gem::Version.new("1.2.0"))
+    stub_request(:get, npm_registry_url).
+      to_return(status: 200, body: fixture("npm", "registry_lodash"))
   end
 
-  let(:checker) { UpdateCheckers::RubyUpdateChecker.new(dependency) }
-  let(:dependency_name) { "business" }
-  let(:dependency_version) { "1.2.0" }
-  let(:dependency_language) { "ruby" }
+  let(:npm_registry_url) { "http://registry.npmjs.org/#{dependency_name}" }
 
+  let(:checker) { UpdateCheckers::NodeUpdateChecker.new(dependency) }
+  let(:dependency_name) { "lodash" }
+  let(:dependency_version) { "1.3.1" }
+  let(:dependency_language) { "node" }
   let(:dependency) do
     Dependency.new(
       name: dependency_name,
@@ -27,18 +26,17 @@ RSpec.describe UpdateCheckers::RubyUpdateChecker do
     subject { checker.needs_update? }
 
     context "given an up-to-date dependency" do
-      let(:dependency_version) { "1.2.0" }
+      let(:dependency_version) { "3.10.1" }
       it { is_expected.to be_falsey }
     end
 
     context "given an outdated dependency" do
-      let(:dependency_version) { "1.1.0" }
       it { is_expected.to be_truthy }
     end
   end
 
   describe "#latest_version" do
     subject { checker.latest_version }
-    it { is_expected.to eq("1.2.0") }
+    it { is_expected.to eq("3.10.1") }
   end
 end

@@ -16,7 +16,7 @@ RSpec.describe DependencyFileUpdaters::RubyDependencyFileUpdater do
   let(:gemfile_lock) do
     DependencyFile.new(content: fixture("Gemfile.lock"), name: "Gemfile.lock")
   end
-  let(:dependency) { Dependency.new(name: "business", version: "1.5.0") }
+  let(:dependency) { Dependency.new(name: "business", version: "1.5.0", language: "ruby") }
   let(:tmp_path) { described_class::BUMP_TMP_DIR_PATH }
 
   before { Dir.mkdir(tmp_path) unless Dir.exist?(tmp_path) }

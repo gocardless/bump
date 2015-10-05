@@ -16,7 +16,8 @@ module Workers
     def perform(_sqs_message, body)
       dependency = Dependency.new(
         name: body["dependency"]["name"],
-        version: body["dependency"]["version"]
+        version: body["dependency"]["version"],
+        language: body["dependency"]["language"]
       )
 
       update_checker_class = update_checker_for(body["repo"]["language"])
@@ -26,7 +27,8 @@ module Workers
 
       updated_dependency = Dependency.new(
         name: dependency.name,
-        version: update_checker.latest_version
+        version: update_checker.latest_version,
+        language: dependency.language
       )
       update_dependency(
         body["repo"],
@@ -54,6 +56,7 @@ module Workers
     def update_checker_for(language)
       case language
       when "ruby" then UpdateCheckers::RubyUpdateChecker
+      when "node" then UpdateCheckers::NodeUpdateChecker
       else raise "Invalid language #{language}"
       end
     end

@@ -2,7 +2,7 @@ require "spec_helper"
 require "bumper/dependency"
 
 RSpec.describe Dependency do
-  subject(:dependency) { described_class.new(name: name, version: version) }
+  subject(:dependency) { described_class.new(name: name, version: version, language: "ruby") }
   let(:name) { "business" }
   let(:version) { "1.4.0" }
 

@@ -8,7 +8,7 @@ RSpec.describe PullRequestCreator do
     PullRequestCreator.new(repo: repo, dependency: dependency, files: files)
   end
 
-  let(:dependency) { Dependency.new(name: "business", version: "1.5.0") }
+  let(:dependency) { Dependency.new(name: "business", version: "1.5.0", language: "ruby") }
   let(:repo) { "gocardless/bump" }
   let(:files) { [gemfile] }
 

@@ -12,7 +12,8 @@ RSpec.describe Workers::UpdateChecker do
       },
       "dependency" => {
         "name" => "business",
-        "version" => "1.4.0"
+        "version" => "1.4.0",
+        language: "ruby"
       },
       "dependency_files" => [
         { "name" => "Gemfile", "content" => fixture("Gemfile") },
@@ -37,7 +38,8 @@ RSpec.describe Workers::UpdateChecker do
           "dependency_files" => body["dependency_files"],
           "updated_dependency" => {
             "name" => "business",
-            "version" => "1.5.0"
+            "version" => "1.5.0",
+            "language" => "ruby"
           })
       worker.perform(sqs_message, body)
     end

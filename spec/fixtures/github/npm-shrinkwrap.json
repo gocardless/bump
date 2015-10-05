@@ -1,0 +1,18 @@
+{
+  "name": "npm-shrinkwrap.json",
+  "path": "npm-shrinkwrap.json",
+  "sha": "3d39741043243167be5801507eb8062757fecc8e",
+  "size": 224,
+  "url": "https://api.github.com/repos/gocardless/bump-test/contents/npm-shrinkwrap.json?ref=master",
+  "html_url": "https://github.com/gocardless/bump-test/blob/master/npm-shrinkwrap.json",
+  "git_url": "https://api.github.com/repos/gocardless/bump-test/git/blobs/3d39741043243167be5801507eb8062757fecc8e",
+  "download_url": "https://raw.githubusercontent.com/gocardless/bump-test/master/npm-shrinkwrap.json?token=ABMwe0THpI9G91FCvbZ5huyoDkqxYKxUks5WEuu-wA%3D%3D",
+  "type": "file",
+  "content": "ewogICJuYW1lIjogImJ1bXAtdGVzdCIsCiAgInZlcnNpb24iOiAiMC4wLjEi\nLAogICJkZXBlbmRlbmNpZXMiOiB7CiAgICAibG9kYXNoIjogewogICAgICAi\ndmVyc2lvbiI6ICIxLjMuMSIsCiAgICAgICJmcm9tIjogImxvZGFzaEAxLjMu\nMSIsCiAgICAgICJyZXNvbHZlZCI6ICJodHRwczovL3JlZ2lzdHJ5Lm5wbWpz\nLm9yZy9sb2Rhc2gvLS9sb2Rhc2gtMS4zLjEudGd6IgogICAgfQogIH0KfQo=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/gocardless/bump-test/contents/npm-shrinkwrap.json?ref=master",
+    "git": "https://api.github.com/repos/gocardless/bump-test/git/blobs/3d39741043243167be5801507eb8062757fecc8e",
+    "html": "https://github.com/gocardless/bump-test/blob/master/npm-shrinkwrap.json"
+  }
+}

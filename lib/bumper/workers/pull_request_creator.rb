@@ -1,4 +1,4 @@
-require "shoryuken"
+require "sidekiq"
 require "bumper/workers"
 require "bumper/dependency"
 require "bumper/dependency_file"
@@ -6,13 +6,9 @@ require "bumper/pull_request_creator"
 
 module Workers
   class PullRequestCreator
-    include Shoryuken::Worker
+    include Sidekiq::Worker
 
-    shoryuken_options(
-      queue: "bump-updated_dependency_files",
-      body_parser: :json,
-      auto_delete: true
-    )
+    sidekiq_options queue: "updated_dependency_files"
 
     def perform(_sqs_message, body)
       updated_dependency = Dependency.new(

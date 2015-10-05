@@ -1,17 +1,13 @@
-require "shoryuken"
+require "sidekiq"
 require "bumper/workers"
 require "bumper/dependency"
 require "bumper/dependency_file_updaters/ruby_dependency_file_updater"
 
 module Workers
   class DependencyFileUpdater
-    include Shoryuken::Worker
+    include Sidekiq::Worker
 
-    shoryuken_options(
-      queue: "bump-dependencies_to_update",
-      body_parser: :json,
-      auto_delete: true
-    )
+    sidekiq_options queue: "dependencies_to_update"
 
     def perform(_sqs_message, body)
       updated_dependency = Dependency.new(

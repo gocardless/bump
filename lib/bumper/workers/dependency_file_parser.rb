@@ -1,17 +1,13 @@
-require "shoryuken"
+require "sidekiq"
 require "bumper/workers"
 require "bumper/dependency_file"
 require "bumper/dependency_file_parsers/ruby_dependency_file_parser"
 
 module Workers
   class DependencyFileParser
-    include Shoryuken::Worker
+    include Sidekiq::Worker
 
-    shoryuken_options(
-      queue: "bump-dependency_files_to_parse",
-      body_parser: :json,
-      auto_delete: true
-    )
+    sidekiq_options queue: "dependency_files_to_parse"
 
     def perform(_sqs_message, body)
       parser = parser_for(body["repo"]["language"])

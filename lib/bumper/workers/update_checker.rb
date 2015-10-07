@@ -1,4 +1,4 @@
-require "shoryuken"
+require "sidekiq"
 require "bumper/workers"
 require "bumper/dependency"
 require "bumper/dependency_file"
@@ -6,13 +6,9 @@ require "bumper/update_checkers/ruby_update_checker"
 
 module Workers
   class UpdateChecker
-    include Shoryuken::Worker
+    include Sidekiq::Worker
 
-    shoryuken_options(
-      queue: "bump-dependencies_to_check",
-      body_parser: :json,
-      auto_delete: true
-    )
+    sidekiq_options queue: "dependencies_to_check"
 
     def perform(_sqs_message, body)
       dependency = Dependency.new(name: body["dependency"]["name"],

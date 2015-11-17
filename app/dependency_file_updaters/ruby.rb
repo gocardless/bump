@@ -68,6 +68,9 @@ module DependencyFileUpdaters
         File.write(File.join(dir, "Gemfile"), updated_gemfile_content)
         File.write(File.join(dir, "Gemfile.lock"), gemfile_lock.content)
 
+        # Set the bundle_path. Would otherwise be global and cause issues for
+        # gems sourced by a git URI.
+        Bundler.bundle_path = Pathname.new(dir).join(".bundle")
         definition = Bundler::Definition.build(
           File.join(dir, "Gemfile"),
           File.join(dir, "Gemfile.lock"),

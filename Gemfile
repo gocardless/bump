@@ -6,7 +6,7 @@ gem "prius", "~> 1.0.0"
 gem "gems", "~> 0.8.3"
 gem "sentry-raven", "~> 0.15.5"
 gem "bundler", "~> 1.11.2"
-gem "shoryuken", "~> 2.0.3"
+gem "shoryuken", "~> 2.0.4"
 
 group :development do
   gem "rspec", "~> 3.4.0"

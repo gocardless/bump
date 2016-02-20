@@ -3,12 +3,12 @@ GEM
   specs:
     addressable (2.3.8)
     ast (2.2.0)
-    aws-sdk (2.2.13)
-      aws-sdk-resources (= 2.2.13)
-    aws-sdk-core (2.2.13)
+    aws-sdk (2.2.18)
+      aws-sdk-resources (= 2.2.18)
+    aws-sdk-core (2.2.18)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.2.13)
-      aws-sdk-core (= 2.2.13)
+    aws-sdk-resources (2.2.18)
+      aws-sdk-core (= 2.2.18)
     builder (3.2.2)
     celluloid (0.17.3)
       celluloid-essentials

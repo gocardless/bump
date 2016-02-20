@@ -26,22 +26,12 @@ the dependencies you'd like to update.
   # token with access to your project and all of its private dependencies.
   ```
 
-2. Set up a local SQS compatible message queue. We use [fake_sqs](https://github.com/iain/fake_sqs):
-  ```bash
-  bundle exec fake_sqs
-  ```
-
-3. In a new window, create queues (persisted in memory only) for each of Bump's services:
-  ```bash
-  bundle exec bin/set_up_sqs_queues
-  ```
-
-4. Start a worker for each queue. We use [foreman](http://ddollar.github.io/foreman/) to automate the process:
+2. Start a worker for each queue. We use [foreman](http://ddollar.github.io/foreman/) to automate the process:
   ```bash
   bundle exec foreman start
   ```
 
-5. In a new window, push a message to `DependencyFileFetcher` (the first of Bump's services):
+3. In a new window, push a message to `DependencyFileFetcher` (the first of Bump's services):
   ```bash
   bundle exec bin/bump_dependencies_for_repo
   ```

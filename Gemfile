@@ -12,7 +12,7 @@ group :development do
   gem "rspec", "~> 3.4.0"
   gem "rspec-its", "~> 1.2.0"
   gem "webmock", "~> 1.24.0"
-  gem "rubocop", "~> 0.36.0"
+  gem "rubocop", "~> 0.37.2"
   gem "highline", "~> 1.7.8"
   gem "foreman", "~> 0.78.0"
   gem "fake_sqs", require: false

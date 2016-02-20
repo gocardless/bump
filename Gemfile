@@ -6,7 +6,8 @@ gem "prius", "~> 1.0.0"
 gem "gems", "~> 0.8.3"
 gem "sentry-raven", "~> 0.15.4"
 gem "bundler", "~> 1.11.2"
-gem "shoryuken", "~> 2.0.3"
+gem "sidekiq", "~> 4.1.0"
+gem "sinatra"
 
 group :development do
   gem "rspec", "~> 3.4.0"
@@ -15,7 +16,5 @@ group :development do
   gem "rubocop", "~> 0.36.0"
   gem "highline", "~> 1.7.8"
   gem "foreman", "~> 0.78.0"
-  gem "fake_sqs", require: false
-  gem "aws-sdk", require: false
   gem "dotenv", require: false
 end

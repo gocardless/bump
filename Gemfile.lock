@@ -119,6 +119,3 @@ DEPENDENCIES
   sentry-raven (~> 0.15.5)
   shoryuken (~> 2.0.3)
   webmock (~> 1.24.0)
-
-BUNDLED WITH
-   1.11.2

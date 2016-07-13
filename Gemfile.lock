@@ -3,8 +3,6 @@ GEM
   specs:
     addressable (2.3.8)
     ast (2.2.0)
-    concurrent-ruby (1.0.1)
-    connection_pool (2.2.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
@@ -28,7 +26,6 @@ GEM
     rack-protection (1.5.3)
       rack
     rainbow (2.1.0)
-    redis (3.2.2)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -58,10 +55,6 @@ GEM
       faraday (~> 0.8, < 0.10)
     sentry-raven (0.15.6)
       faraday (>= 0.7.6)
-    sidekiq (4.1.0)
-      concurrent-ruby (~> 1.0)
-      connection_pool (~> 2.2, >= 2.2.0)
-      redis (~> 3.2, >= 3.2.1)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -90,7 +83,7 @@ DEPENDENCIES
   rspec-its (~> 1.2.0)
   rubocop (~> 0.38.0)
   sentry-raven (~> 0.15.6)
-  sidekiq (~> 4.1.0)
+  sidekiq (~> 4.1.4)
   sinatra
   webmock (~> 1.24.2)
 

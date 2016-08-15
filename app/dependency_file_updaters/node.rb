@@ -63,7 +63,7 @@ module DependencyFileUpdaters
       return @updated_shrinkwrap_content if @updated_shrinkwrap_content
       SharedHelpers.in_a_temporary_directory do |dir|
         File.write(File.join(dir, "package.json"), updated_package_json_content)
-        `cd #{dir} && npm i --silent && npm shrinkwrap --silent`
+        `cd #{dir} && npm i --silent --ignore-scripts && npm shrinkwrap --silent`
         @updated_shrinkwrap_content =
           File.read(File.join(dir, "npm-shrinkwrap.json"))
       end

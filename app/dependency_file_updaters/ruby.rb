@@ -86,10 +86,9 @@ module DependencyFileUpdaters
         end
       end
     rescue SharedHelpers::ChildProcessFailed => error
-      if error.error_class == "Bundler::VersionConflict"
-        raise DependencyFileUpdaters::VersionConflict
-      else raise
-      end
+      raise DependencyFileUpdaters::VersionConflict \
+        if error.error_class == "Bundler::VersionConflict"
+      raise
     end
 
     def write_temporary_dependency_files_to(dir)

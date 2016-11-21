@@ -28,6 +28,7 @@ GEM
     rack-protection (1.5.3)
       rack
     rainbow (2.1.0)
+    rake (11.3.0)
     redis (3.3.1)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -79,7 +80,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.12.5)
+  bundler (>= 1.13.6)
   dotenv
   foreman (~> 0.82.0)
   gemnasium-parser (~> 0.1.9)
@@ -87,6 +88,7 @@ DEPENDENCIES
   highline (~> 1.7.8)
   octokit (~> 4.3.0)
   prius (~> 1.0.0)
+  rake
   rspec (~> 3.5.0)
   rspec-its (~> 1.2.0)
   rubocop (~> 0.45.0)
@@ -96,7 +98,7 @@ DEPENDENCIES
   webmock (~> 2.1.0)
 
 RUBY VERSION
-   ruby 2.2.4p230
+   ruby 2.3.2p217
 
 BUNDLED WITH
-   1.12.5
+   1.13.6

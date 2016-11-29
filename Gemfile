@@ -8,7 +8,7 @@ gem "gems", "~> 0.8.3"
 gem "sentry-raven", "~> 2.1.4"
 gem "bundler", ">= 1.13.6"
 gem "rake"
-gem "sidekiq", "~> 4.1.4"
+gem "sidekiq", "~> 4.2.7"
 gem "sinatra"
 
 group :development do

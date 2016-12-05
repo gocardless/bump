@@ -1,4 +1,4 @@
-ruby RUBY_VERSION
+ruby "2.2.4"
 source "https://rubygems.org"
 
 gem "bundler", ">= 1.13.6"
@@ -9,7 +9,6 @@ gem "prius", "~> 1.0.0"
 gem "sentry-raven", "~> 2.1.4"
 gem "rake"
 gem "sidekiq", "~> 4.2.7"
-gem "bundler", ">= 1.13.6"
 gem "rake"
 gem "sinatra"
 

@@ -1,4 +1,4 @@
-ruby RUBY_VERSION
+ruby "2.2.4"
 source "https://rubygems.org"
 
 gem "gemnasium-parser", "~> 0.1.9"

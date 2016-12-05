@@ -6,10 +6,9 @@ gem "gemnasium-parser", "~> 0.1.9"
 gem "gems", "~> 0.8.3"
 gem "octokit", "~> 4.3.0"
 gem "prius", "~> 1.0.0"
+gem "rake"
 gem "sentry-raven", "~> 2.1.4"
-gem "rake"
 gem "sidekiq", "~> 4.2.7"
-gem "rake"
 gem "sinatra"
 
 group :development do

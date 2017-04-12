@@ -8,11 +8,11 @@ unless ENV["RACK_ENV"] == "production"
 end
 
 require File.expand_path("../../app/workers/dependency_file_fetcher", __FILE__)
-require File.expand_path("../../lib/github", __FILE__)
+require File.expand_path("../../lib/bump/github", __FILE__)
 
 repo_validator = lambda do |repo_name|
   begin
-    Github.client.repository(repo_name)
+    Bump::Github.client.repository(repo_name)
     true
   rescue Octokit::NotFound
     false

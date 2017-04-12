@@ -72,6 +72,13 @@ We'd love to see the following improvements to Bump:
 - A faster `DependencyFileUpdater` for Node. This might need its own,
   language-specific worker that borrows from NPM internals to avoid doing an
   actual install.
+- Better support for GitHub releases. Many dependencies use this as a place to
+  store the changelog between releases, so it should be linked to from the pull
+  requests Bump generates.
+- More sensitive management of `requirements.txt` when updating Python
+  dependencies. Currently the entire file is rewritten.
+- Support for `eval_gemfile` in Ruby gemfiles. See
+  [this issue](https://github.com/gocardless/bump/issues/104) for more details
 
 ---
 

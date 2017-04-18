@@ -1,2 +1,0 @@
-psycopg2
-luigi==2.2.0

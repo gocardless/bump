@@ -5,7 +5,6 @@ require "dotenv"
 
 Dotenv.load(File.expand_path("../../config/dummy_env", __FILE__))
 
-$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 require "bump"
 
 require "./app/boot"

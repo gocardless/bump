@@ -2,10 +2,9 @@
 ruby "2.3.3"
 source "https://rubygems.org"
 
-# Dependencies necessary for using bump as a library are in the gemspec
-gemspec
-
-# Dependencies necessary for running bump as an app are here
+gem "bump-core", "~> 0.1.0",
+    git: "https://github.com/gocardless/bump-core",
+    tag: "v0.1.0"
 gem "prius", "~> 1.0.0"
 gem "rake"
 gem "sentry-raven", "~> 2.1.4"

@@ -1,7 +1,9 @@
-PATH
-  remote: .
+GIT
+  remote: https://github.com/gocardless/bump-core
+  revision: 52a8c092183139b10ed16d86f66e716259ec4ce1
+  tag: v0.1.0
   specs:
-    bump (0.1.0)
+    bump-core (0.1.0)
       bundler (>= 1.12.0)
       excon (~> 0.55)
       gemnasium-parser (~> 0.1)
@@ -11,7 +13,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.4.0)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     ast (2.3.0)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.1)
@@ -29,14 +32,15 @@ GEM
       json
     hashdiff (0.3.1)
     highline (1.7.8)
-    json (2.0.4)
+    json (2.1.0)
     multipart-post (2.0.0)
-    octokit (4.6.2)
+    octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     parser (2.3.3.0)
       ast (~> 2.2)
     powerpack (0.1.1)
     prius (1.0.0)
+    public_suffix (2.0.5)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
@@ -93,7 +97,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bump!
+  bump-core (~> 0.1.0)!
   dotenv
   foreman (~> 0.82.0)
   highline (~> 1.7.8)

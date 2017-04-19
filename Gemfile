@@ -7,7 +7,7 @@ gem "bump-core", "~> 0.1.0",
     tag: "v0.1.0"
 gem "prius", "~> 1.0.0"
 gem "rake"
-gem "sentry-raven", "~> 2.1.4"
+gem "sentry-raven", "~> 2.4.0"
 gem "sidekiq", "~> 4.2.7"
 gem "sinatra"
 

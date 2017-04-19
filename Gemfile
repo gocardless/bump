@@ -13,7 +13,7 @@ gem "sinatra"
 
 group :development do
   gem "dotenv", require: false
-  gem "foreman", "~> 0.82.0"
+  gem "foreman", "~> 0.84.0"
   gem "highline", "~> 1.7.8"
   gem "rspec", "~> 3.5.0"
   gem "rspec-its", "~> 1.2.0"

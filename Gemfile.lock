@@ -30,7 +30,7 @@ GEM
     gemnasium-parser (0.1.9)
     gems (1.0.0)
       json
-    hashdiff (0.3.1)
+    hashdiff (0.3.2)
     highline (1.7.8)
     json (2.1.0)
     multipart-post (2.0.0)
@@ -88,7 +88,7 @@ GEM
     thor (0.19.1)
     tilt (2.0.5)
     unicode-display_width (1.1.1)
-    webmock (2.3.1)
+    webmock (3.0.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -109,7 +109,7 @@ DEPENDENCIES
   sentry-raven (~> 2.1.4)
   sidekiq (~> 4.2.7)
   sinatra
-  webmock (~> 2.3.1)
+  webmock (~> 3.0.1)
 
 RUBY VERSION
    ruby 2.3.3p222

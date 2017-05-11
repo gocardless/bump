@@ -2,12 +2,8 @@
 require "sidekiq"
 require "./app/boot"
 require "bump/dependency_file"
-require "bump/dependency_file_fetchers/ruby"
-require "bump/dependency_file_fetchers/node"
-require "bump/dependency_file_fetchers/python"
-require "bump/dependency_file_parsers/ruby"
-require "bump/dependency_file_parsers/node"
-require "bump/dependency_file_parsers/python"
+require "bump/dependency_file_fetchers"
+require "bump/dependency_file_parsers"
 
 $stdout.sync = true
 
@@ -55,21 +51,11 @@ module Workers
     end
 
     def file_fetcher_for(language)
-      case language
-      when "ruby" then Bump::DependencyFileFetchers::Ruby
-      when "node" then Bump::DependencyFileFetchers::Node
-      when "python" then Bump::DependencyFileFetchers::Python
-      else raise "Invalid language #{language}"
-      end
+      Bump::DependencyFileFetchers.for_language(language)
     end
 
     def parser_for(language)
-      case language
-      when "ruby" then Bump::DependencyFileParsers::Ruby
-      when "node" then Bump::DependencyFileParsers::Node
-      when "python" then Bump::DependencyFileParsers::Python
-      else raise "Invalid language #{language}"
-      end
+      Bump::DependencyFileParsers.for_language(language)
     end
 
     def github_client

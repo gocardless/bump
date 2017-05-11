@@ -22,7 +22,7 @@ repo_validator = lambda do |repo_name|
   end
 end
 
-language_validator = ->(l) { %w(ruby node python).include?(l) }
+language_validator = ->(l) { %w(ruby javascript python).include?(l) }
 
 if ARGV.empty?
   repo =
@@ -37,7 +37,7 @@ if ARGV.empty?
   language = ARGV[1] || choose do |menu|
     menu.header = "Which language would you like to bump dependencies for?"
     menu.index = :none
-    menu.choices(:ruby, :node, :python)
+    menu.choices(:ruby, :javascript, :python)
   end
 else
   repo = ARGV[0]

@@ -5,12 +5,8 @@ require "./app/boot"
 require "bump/dependency"
 require "bump/dependency_file"
 require "bump/repo"
-require "bump/update_checkers/ruby"
-require "bump/update_checkers/node"
-require "bump/update_checkers/python"
-require "bump/dependency_file_updaters/ruby"
-require "bump/dependency_file_updaters/node"
-require "bump/dependency_file_updaters/python"
+require "bump/update_checkers"
+require "bump/dependency_file_updaters"
 require "bump/pull_request_creator"
 
 $stdout.sync = true
@@ -42,7 +38,7 @@ module Workers
         github_client: github_client
       ).create
 
-    rescue Bump::DependencyFileUpdaters::VersionConflict
+    rescue Bump::VersionConflict
       nil
     rescue => error
       Raven.capture_exception(error, extra: { body: body })
@@ -73,21 +69,11 @@ module Workers
     end
 
     def update_checker
-      case repo.language
-      when "ruby" then Bump::UpdateCheckers::Ruby
-      when "node" then Bump::UpdateCheckers::Node
-      when "python" then Bump::UpdateCheckers::Python
-      else raise "Invalid language #{language}"
-      end
+      Bump::UpdateCheckers.for_language(repo.language)
     end
 
     def file_updater
-      case repo.language
-      when "ruby" then Bump::DependencyFileUpdaters::Ruby
-      when "node" then Bump::DependencyFileUpdaters::Node
-      when "python" then Bump::DependencyFileUpdaters::Python
-      else raise "Invalid language #{language}"
-      end
+      Bump::DependencyFileUpdaters.for_language(repo.language)
     end
 
     def bump_github_token

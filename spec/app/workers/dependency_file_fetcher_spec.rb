@@ -43,8 +43,16 @@ RSpec.describe Workers::DependencyFileFetcher do
         with(
           "repo" => body["repo"].merge("commit" => "commitsha"),
           "dependency_files" => [
-            { "name" => "Gemfile", "content" => fixture("Gemfile") },
-            { "name" => "Gemfile.lock", "content" => fixture("Gemfile.lock") }
+            {
+              "name" => "Gemfile",
+              "content" => fixture("Gemfile"),
+              "directory" => "/"
+            },
+            {
+              "name" => "Gemfile.lock",
+              "content" => fixture("Gemfile.lock"),
+              "directory" => "/"
+            }
           ],
           "dependency" => {
             "name" => "business",
@@ -59,8 +67,16 @@ RSpec.describe Workers::DependencyFileFetcher do
         with(
           "repo" => body["repo"].merge("commit" => "commitsha"),
           "dependency_files" => [
-            { "name" => "Gemfile", "content" => fixture("Gemfile") },
-            { "name" => "Gemfile.lock", "content" => fixture("Gemfile.lock") }
+            {
+              "name" => "Gemfile",
+              "content" => fixture("Gemfile"),
+              "directory" => "/"
+            },
+            {
+              "name" => "Gemfile.lock",
+              "content" => fixture("Gemfile.lock"),
+              "directory" => "/"
+            }
           ],
           "dependency" => {
             "name" => "statesman",

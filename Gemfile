@@ -2,9 +2,9 @@
 ruby "2.3.3"
 source "https://rubygems.org"
 
-gem "bump-core", "~> 0.1.1",
+gem "bump-core", "~> 0.3.3",
     git: "https://github.com/gocardless/bump-core",
-    tag: "v0.1.1"
+    tag: "v0.3.3"
 gem "prius", "~> 1.0.0"
 gem "rake"
 gem "sentry-raven", "~> 2.4.0"

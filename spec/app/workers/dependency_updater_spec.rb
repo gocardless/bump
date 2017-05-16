@@ -52,7 +52,7 @@ RSpec.describe Workers::DependencyUpdater do
             "language" => "ruby"
           )
           expect(args[:files].map(&:to_h)).to eq(
-            [{ "name" => "Gemfile", "content" => "xyz" }]
+            [{ "name" => "Gemfile", "content" => "xyz", "directory" => "/" }]
           )
         end.and_return(double(create: nil))
         perform
@@ -81,7 +81,7 @@ RSpec.describe Workers::DependencyUpdater do
         before do
           allow_any_instance_of(Bump::DependencyFileUpdaters::Ruby).
             to receive(:updated_dependency_files).
-            and_raise(Bump::DependencyFileUpdaters::VersionConflict)
+            and_raise(Bump::VersionConflict)
         end
 
         it "quietly finishes" do

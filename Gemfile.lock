@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/gocardless/bump-core
-  revision: d0d4faef498b9430b5879432001359cf66ea975b
-  tag: v0.3.3
+  revision: 628c220dccc4fee18135c3133cc3f5bf3f630d8a
+  tag: v0.4.1
   specs:
-    bump-core (0.3.3)
+    bump-core (0.4.1)
       bundler (>= 1.12.0)
       excon (~> 0.55)
       gemnasium-parser (~> 0.1)
@@ -99,7 +99,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bump-core (~> 0.3.3)!
+  bump-core (~> 0.4.1)!
   dotenv
   foreman (~> 0.84.0)
   highline (~> 1.7.8)

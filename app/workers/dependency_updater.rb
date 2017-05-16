@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "sidekiq"
 require "octokit"
 require "./app/boot"
@@ -37,7 +38,6 @@ module Workers
         files: updated_dependency_files,
         github_client: github_client
       ).create
-
     rescue Bump::VersionConflict
       nil
     rescue => error

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 require "./app/workers/dependency_file_fetcher"
 require "./app/workers/dependency_updater"

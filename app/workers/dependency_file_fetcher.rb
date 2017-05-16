@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "sidekiq"
 require "./app/boot"
 require "bump/dependency_file"
@@ -34,7 +35,6 @@ module Workers
           "dependency" => dependency.to_h
         )
       end
-
     rescue => error
       Raven.capture_exception(error, extra: { body: body })
       raise

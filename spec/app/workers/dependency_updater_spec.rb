@@ -75,7 +75,7 @@ RSpec.describe Workers::DependencyUpdater do
     context "if an error is raised" do
       before do
         allow_any_instance_of(Bump::UpdateCheckers::Ruby).
-          to receive(:latest_version).and_return("1.7.0")
+          to receive(:latest_version).and_return(Gem::Version.new("1.7.0"))
       end
 
       context "for a version conflict" do

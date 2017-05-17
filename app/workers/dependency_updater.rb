@@ -52,7 +52,8 @@ module Workers
     def update_dependency!
       checker = update_checker.new(
         dependency: dependency,
-        dependency_files: dependency_files
+        dependency_files: dependency_files,
+        github_access_token: bump_github_token
       )
 
       return unless checker.needs_update?

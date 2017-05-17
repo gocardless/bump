@@ -53,25 +53,7 @@ the dependencies you'd like to update.
 
 # The code / contributing
 
-To allow support for multiple languages Bump has a service-oriented
-architecture. It can be split into five concerns, each of which has its own
-worker:
-
-| Service                 | Description                                                                                   |
-|-------------------------|-----------------------------------------------------------------------------------------------|
-| `DependencyFileFetcher` | Fetches the relevant dependency files for a project (e.g., the `Gemfile` and `Gemfile.lock`). |
-| `DependencyFileParser`  | Parses a dependency file and extracts a list of dependencies for a project.                   |
-| `UpdateChecker`         | Checks whether a given dependency is up-to-date.                                              |
-| `DependencyFileUpdater` | Updates a dependency file to use the latest version of a given dependency.                    |
-| `PullRequestCreator`    | Creates a Pull Request to the original repo with the updated dependency file.                 |
-
-### Contributing
-
-We'd love to see the following improvements to Bump:
-
-- A faster `DependencyFileUpdater` for Node. This might need its own,
-  language-specific worker that borrows from NPM internals to avoid doing an
-  actual install.
+The core logic behind Bump lives in [bump-core](https://github.com/gocardless/bump-core).
 
 ---
 

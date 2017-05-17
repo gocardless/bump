@@ -81,7 +81,7 @@ RSpec.describe Workers::DependencyFileFetcher do
           ],
           "dependency" => {
             "name" => "statesman",
-            "version" => "1.2.0",
+            "version" => "1.2.1",
             "language" => "ruby",
             "previous_version" => nil
           }

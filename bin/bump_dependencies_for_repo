@@ -22,7 +22,7 @@ repo_validator = lambda do |repo_name|
   end
 end
 
-language_validator = ->(l) { %w(ruby javascript python).include?(l) }
+package_manager_validator = ->(l) { %w(bundler yarn pip).include?(l) }
 
 if ARGV.empty?
   repo =
@@ -34,23 +34,23 @@ if ARGV.empty?
         "access to the given repo."
     end
 
-  language = ARGV[1] || choose do |menu|
-    menu.header = "Which language would you like to bump dependencies for?"
+  package_manager = ARGV[1] || choose do |menu|
+    menu.header = "Which package manager would you like to bump dependencies for?"
     menu.index = :none
-    menu.choices(:ruby, :javascript, :python)
+    menu.choices(:bundler, :yarn, :pip)
   end
 else
   repo = ARGV[0]
-  language = ARGV[1]
+  package_manager = ARGV[1]
 
-  unless repo_validator.call(repo) && language_validator.call(language)
-    puts "Bad repo/language"
+  unless repo_validator.call(repo) && package_manager_validator.call(package_manager)
+    puts "Bad repo/package_manager"
     raise
   end
 end
 
 Workers::DependencyFileFetcher.
-  perform_async("repo" => { "language" => language, "name" => repo })
+  perform_async("repo" => { "package_manager" => package_manager, "name" => repo })
 
 puts "Great success - a job has been enqueued to bump the "\
-  "#{language} dependency files for #{repo}."
+  "#{package_manager} dependency files for #{repo}."

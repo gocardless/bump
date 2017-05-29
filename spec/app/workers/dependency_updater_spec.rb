@@ -9,13 +9,12 @@ RSpec.describe Workers::DependencyUpdater do
     {
       "repo" => {
         "name" => "gocardless/bump",
-        "language" => "ruby",
         "commit" => "commitsha"
       },
       "dependency" => {
         "name" => "business",
         "version" => "1.4.0",
-        "language" => "ruby"
+        "package_manager" => "bundler"
       },
       "dependency_files" => [
         { "name" => "Gemfile", "content" => fixture("Gemfile") },
@@ -30,12 +29,12 @@ RSpec.describe Workers::DependencyUpdater do
 
     context "when an update is required" do
       before do
-        allow_any_instance_of(Bump::UpdateCheckers::Ruby).
+        allow_any_instance_of(Bump::UpdateCheckers::Ruby::Bundler).
           to receive(:needs_update?).and_return(true)
-        allow_any_instance_of(Bump::UpdateCheckers::Ruby).
+        allow_any_instance_of(Bump::UpdateCheckers::Ruby::Bundler).
           to receive(:latest_version).and_return("1.5.0")
 
-        allow_any_instance_of(Bump::DependencyFileUpdaters::Ruby).
+        allow_any_instance_of(Bump::FileUpdaters::Ruby::Bundler).
           to receive(:updated_dependency_files).
           and_return(
             [Bump::DependencyFile.new(name: "Gemfile", content: "xyz")]
@@ -50,7 +49,7 @@ RSpec.describe Workers::DependencyUpdater do
             "name" => "business",
             "version" => "1.5.0",
             "previous_version" => "1.4.0",
-            "language" => "ruby"
+            "package_manager" => "bundler"
           )
           expect(args[:files].map(&:to_h)).to eq(
             [{ "name" => "Gemfile", "content" => "xyz", "directory" => "/" }]
@@ -62,7 +61,7 @@ RSpec.describe Workers::DependencyUpdater do
 
     context "when no update is required" do
       before do
-        allow_any_instance_of(Bump::UpdateCheckers::Ruby).
+        allow_any_instance_of(Bump::UpdateCheckers::Ruby::Bundler).
           to receive(:needs_update?).and_return(false)
       end
 
@@ -74,15 +73,15 @@ RSpec.describe Workers::DependencyUpdater do
 
     context "if an error is raised" do
       before do
-        allow_any_instance_of(Bump::UpdateCheckers::Ruby).
+        allow_any_instance_of(Bump::UpdateCheckers::Ruby::Bundler).
           to receive(:latest_version).and_return(Gem::Version.new("1.7.0"))
       end
 
       context "for a version conflict" do
         before do
-          allow_any_instance_of(Bump::DependencyFileUpdaters::Ruby).
+          allow_any_instance_of(Bump::FileUpdaters::Ruby::Bundler).
             to receive(:updated_dependency_files).
-            and_raise(Bump::VersionConflict)
+            and_raise(Bump::DependencyFileNotResolvable)
         end
 
         it "quietly finishes" do
@@ -93,7 +92,7 @@ RSpec.describe Workers::DependencyUpdater do
 
       context "for a runtime error" do
         before do
-          allow(Bump::DependencyFileUpdaters::Ruby).
+          allow(Bump::FileUpdaters::Ruby::Bundler).
             to receive(:new).
             and_raise("hell")
         end

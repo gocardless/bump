@@ -2,7 +2,7 @@
 
 [![Build Status](https://circleci.com/gh/gocardless/bump/tree/master.svg?style=svg)](https://circleci.com/gh/gocardless/bump)
 
-Bump helps you keep your project's Ruby, Node and Python dependencies up to date. It:
+Bump helps you keep your project's Ruby (Bundler), Node (Yarn) and Python (Pip) dependencies up to date. It:
 
 - Checks for updates to each of your dependencies.
 - Builds an updated dependency file for each update required.
@@ -22,14 +22,14 @@ list of addons and set up a scheduled task to bump your dependencies each day.
 You can use the `./bin/bump_dependencies_for_repo` script to do this:
 
 ```
-bundle exec bin/bump_dependencies_for_repo gocardless/bump ruby
+bundle exec bin/bump_dependencies_for_repo gocardless/bump bundler
 ```
 
 ### Using Bump from your local machine
 
 You can run Bump locally to kick-off a one-off update of your project's
-dependencies. Bump will ask you for the project's repository and the language of
-the dependencies you'd like to update.
+dependencies. Bump will ask you for the project's repository and the package manager
+for the dependencies you'd like to update.
 
 1. Pull down bump and install its dependencies:
   ```bash

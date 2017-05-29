@@ -7,7 +7,7 @@ require "bump/dependency"
 require "bump/dependency_file"
 require "bump/repo"
 require "bump/update_checkers"
-require "bump/dependency_file_updaters"
+require "bump/file_updaters"
 require "bump/pull_request_creator"
 
 $stdout.sync = true
@@ -38,7 +38,7 @@ module Workers
         files: updated_dependency_files,
         github_client: github_client
       ).create
-    rescue Bump::VersionConflict
+    rescue Bump::DependencyFileNotResolvable
       nil
     rescue => error
       Raven.capture_exception(error, extra: { body: body })
@@ -70,11 +70,11 @@ module Workers
     end
 
     def update_checker
-      Bump::UpdateCheckers.for_language(repo.language)
+      Bump::UpdateCheckers.for_package_manager(dependency.package_manager)
     end
 
     def file_updater
-      Bump::DependencyFileUpdaters.for_language(repo.language)
+      Bump::FileUpdaters.for_package_manager(dependency.package_manager)
     end
 
     def bump_github_token

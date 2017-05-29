@@ -3,8 +3,8 @@
 require "sidekiq"
 require "./app/boot"
 require "bump/dependency_file"
-require "bump/dependency_file_fetchers"
-require "bump/dependency_file_parsers"
+require "bump/file_fetchers"
+require "bump/file_parsers"
 
 $stdout.sync = true
 
@@ -18,15 +18,16 @@ module Workers
 
     def perform(body)
       @body = body
+      @package_manager = body["repo"]["package_manager"]
 
-      file_fetcher = file_fetcher_for(repo.language).new(
+      file_fetcher = file_fetcher_klass.new(
         repo: repo,
         github_client: github_client
       )
 
-      parser = parser_for(repo.language)
-
-      dependencies = parser.new(dependency_files: file_fetcher.files).parse
+      dependencies = parser_klass.new(
+        dependency_files: file_fetcher.files
+      ).parse
 
       dependencies.each do |dependency|
         Workers::DependencyUpdater.perform_async(
@@ -45,17 +46,16 @@ module Workers
     def repo
       @repo ||= Bump::Repo.new(
         name: @body["repo"]["name"],
-        language: @body["repo"]["language"],
         commit: nil
       )
     end
 
-    def file_fetcher_for(language)
-      Bump::DependencyFileFetchers.for_language(language)
+    def file_fetcher_klass
+      Bump::FileFetchers.for_package_manager(@package_manager)
     end
 
-    def parser_for(language)
-      Bump::DependencyFileParsers.for_language(language)
+    def parser_klass
+      Bump::FileParsers.for_package_manager(@package_manager)
     end
 
     def github_client

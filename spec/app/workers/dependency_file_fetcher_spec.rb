@@ -10,7 +10,7 @@ RSpec.describe Workers::DependencyFileFetcher do
     {
       "repo" => {
         "name" => "gocardless/bump",
-        "language" => "ruby"
+        "package_manager" => "bundler"
       }
     }
   end
@@ -19,7 +19,7 @@ RSpec.describe Workers::DependencyFileFetcher do
     subject(:perform) { worker.perform(body) }
 
     before do
-      allow_any_instance_of(Bump::DependencyFileFetchers::Ruby).
+      allow_any_instance_of(Bump::FileFetchers::Ruby::Bundler).
         to receive(:files).
         and_return(
           [
@@ -34,7 +34,7 @@ RSpec.describe Workers::DependencyFileFetcher do
           ]
         )
 
-      allow_any_instance_of(Bump::DependencyFileFetchers::Ruby).
+      allow_any_instance_of(Bump::FileFetchers::Ruby::Bundler).
         to receive(:commit).and_return("commitsha")
     end
 
@@ -42,7 +42,10 @@ RSpec.describe Workers::DependencyFileFetcher do
       expect(Workers::DependencyUpdater).
         to receive(:perform_async).
         with(
-          "repo" => body["repo"].merge("commit" => "commitsha"),
+          "repo" => {
+            "name" => body.dig("repo", "name"),
+            "commit" => "commitsha"
+          },
           "dependency_files" => [
             {
               "name" => "Gemfile",
@@ -58,7 +61,7 @@ RSpec.describe Workers::DependencyFileFetcher do
           "dependency" => {
             "name" => "business",
             "version" => "1.4.0",
-            "language" => "ruby",
+            "package_manager" => "bundler",
             "previous_version" => nil
           }
         )
@@ -66,7 +69,10 @@ RSpec.describe Workers::DependencyFileFetcher do
       expect(Workers::DependencyUpdater).
         to receive(:perform_async).
         with(
-          "repo" => body["repo"].merge("commit" => "commitsha"),
+          "repo" => {
+            "name" => body.dig("repo", "name"),
+            "commit" => "commitsha"
+          },
           "dependency_files" => [
             {
               "name" => "Gemfile",
@@ -82,7 +88,7 @@ RSpec.describe Workers::DependencyFileFetcher do
           "dependency" => {
             "name" => "statesman",
             "version" => "1.2.1",
-            "language" => "ruby",
+            "package_manager" => "bundler",
             "previous_version" => nil
           }
         )
@@ -92,7 +98,7 @@ RSpec.describe Workers::DependencyFileFetcher do
 
     context "if an error is raised" do
       before do
-        allow_any_instance_of(Bump::DependencyFileFetchers::Ruby).
+        allow_any_instance_of(Bump::FileFetchers::Ruby::Bundler).
           to receive(:files).and_raise("hell")
       end
 

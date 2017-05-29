@@ -4,6 +4,7 @@ require "prius"
 require "sidekiq"
 require "raven"
 require "excon"
+require "bundler"
 
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "null_logger"

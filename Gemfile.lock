@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/gocardless/bump-core
-  revision: 4310658cc8a750b823c74f7c8363716bd1e127b6
-  tag: v0.5.5
+  revision: df869a47e078112a0eb30dc96a8ca19c9293691e
+  tag: v0.6.0
   specs:
-    bump-core (0.5.5)
+    bump-core (0.6.0)
       bundler (>= 1.12.0)
       excon (~> 0.55)
       gemnasium-parser (~> 0.1)

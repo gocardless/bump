@@ -18,6 +18,6 @@ group :development do
   gem "highline", "~> 1.7.8"
   gem "rspec", "~> 3.6.0"
   gem "rspec-its", "~> 1.2.0"
-  gem "rubocop", "~> 0.49.0"
+  gem "rubocop", "~> 0.49.1"
   gem "webmock", "~> 3.0.1"
 end

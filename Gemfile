@@ -9,7 +9,7 @@ gem "bump-core",
 gem "prius", "~> 1.0.0"
 gem "rake"
 gem "sentry-raven", "~> 2.5.3"
-gem "sidekiq", "~> 5.0.0"
+gem "sidekiq", "~> 5.0.3"
 gem "sinatra"
 
 group :development do

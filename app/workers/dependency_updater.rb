@@ -21,10 +21,11 @@ module Workers
     sidekiq_retry_in { |count| [60, 300, 3_600, 36_000][count] }
 
     def perform(body)
-      @repo = Bump::Repo.new(**body["repo"].symbolize_keys)
-      @dependency = Bump::Dependency.new(**body["dependency"].symbolize_keys)
+      @repo = Bump::Repo.new(**symbolize_hash_keys(body["repo"]))
+      @dependency = Bump::Dependency.
+                    new(**symbolize_hash_keys(body["dependency"]))
       @dependency_files = body["dependency_files"].map do |file|
-        Bump::DependencyFile.new(**file.symbolize_keys)
+        Bump::DependencyFile.new(**symbolize_hash_keys(file))
       end
 
       updated_dependency, updated_dependency_files = update_dependency!
@@ -83,6 +84,13 @@ module Workers
 
     def github_client
       Octokit::Client.new(access_token: bump_github_token)
+    end
+
+    def symbolize_hash_keys(hash)
+      hash.each_with_object({}) do |(key, value), transformed_hash|
+        transformed_key = key.respond_to?(:to_sym) ? key.to_sym : key
+        transformed_hash[transformed_key] = value
+      end
     end
   end
 end

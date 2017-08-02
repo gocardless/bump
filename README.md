@@ -1,5 +1,7 @@
 # Bump
 
+**Bump has now been superseded by [Dependabot](www.dependabot.com), which we recommend for all your dependency updating needs**
+
 [![Build Status](https://circleci.com/gh/gocardless/bump/tree/master.svg?style=svg)](https://circleci.com/gh/gocardless/bump)
 
 Bump helps you keep your project's Ruby (Bundler), Node (Yarn) and Python (Pip) dependencies up to date. It:

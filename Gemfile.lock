@@ -41,7 +41,7 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     powerpack (0.1.1)
-    prius (1.0.0)
+    prius (2.0.0)
     public_suffix (2.0.5)
     rack (2.0.3)
     rack-protection (2.0.0)
@@ -106,7 +106,7 @@ DEPENDENCIES
   dotenv
   foreman (~> 0.84.0)
   highline (~> 1.7.8)
-  prius (~> 1.0.0)
+  prius (~> 2.0.0)
   rake
   rspec (~> 3.6.0)
   rspec-its (~> 1.2.0)

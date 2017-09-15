@@ -41,6 +41,7 @@ module Workers
       ).create
     rescue Bump::DependencyFileNotResolvable
       nil
+    # rubocop:disable Lint/RescueWithoutErrorClass
     rescue => error
       Raven.capture_exception(error, extra: { body: body })
       raise

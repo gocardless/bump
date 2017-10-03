@@ -49,7 +49,7 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.1.0)
-    redis (3.3.3)
+    redis (4.0.1)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -80,11 +80,11 @@ GEM
       faraday (~> 0.8, < 1.0)
     sentry-raven (2.6.3)
       faraday (>= 0.7.6, < 1.0)
-    sidekiq (5.0.4)
+    sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
-      redis (~> 3.3, >= 3.3.3)
+      redis (>= 3.3.4, < 5)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -112,7 +112,7 @@ DEPENDENCIES
   rspec-its (~> 1.2.0)
   rubocop (~> 0.50.0)
   sentry-raven (~> 2.6.3)
-  sidekiq (~> 5.0.4)
+  sidekiq (~> 5.0.5)
   sinatra
   webmock (~> 3.0.1)
 

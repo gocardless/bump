@@ -5,7 +5,7 @@ source "https://rubygems.org"
 
 gem "bump-core",
     git: "https://github.com/gocardless/bump-core",
-    tag: "v0.6.0"
+    tag: "v0.6.6"
 gem "prius", "~> 2.0.0"
 gem "rake"
 gem "sentry-raven", "~> 2.6.3"

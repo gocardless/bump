@@ -78,7 +78,7 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
-    sentry-raven (2.6.3)
+    sentry-raven (2.7.0)
       faraday (>= 0.7.6, < 1.0)
     sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
@@ -111,7 +111,7 @@ DEPENDENCIES
   rspec (~> 3.6.0)
   rspec-its (~> 1.2.0)
   rubocop (~> 0.50.0)
-  sentry-raven (~> 2.6.3)
+  sentry-raven (~> 2.7.0)
   sidekiq (~> 5.0.5)
   sinatra
   webmock (~> 3.1.0)

@@ -48,7 +48,7 @@ GEM
       rack
     rainbow (2.2.2)
       rake
-    rake (12.1.0)
+    rake (12.2.1)
     redis (4.0.1)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)

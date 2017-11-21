@@ -19,5 +19,5 @@ group :development do
   gem "rspec", "~> 3.7.0"
   gem "rspec-its", "~> 1.2.0"
   gem "rubocop", "~> 0.51.0"
-  gem "webmock", "~> 3.1.0"
+  gem "webmock", "~> 3.1.1"
 end

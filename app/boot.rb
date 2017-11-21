@@ -19,4 +19,4 @@ end
 
 # Heroku's ruby buildpack freezes the Gemfile to prevent accidental damage
 # However, we actually *want* to manipulate Gemfiles for other repos.
-Bundler.settings[:frozen] = "0"
+Bundler.settings.temporary(frozen: 0)

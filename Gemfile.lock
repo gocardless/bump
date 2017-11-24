@@ -31,7 +31,7 @@ GEM
     gems (1.0.0)
       json
     hashdiff (0.3.7)
-    highline (1.7.8)
+    highline (1.7.10)
     json (2.1.0)
     multipart-post (2.0.0)
     mustermann (1.0.0)
@@ -105,7 +105,7 @@ DEPENDENCIES
   bump-core!
   dotenv
   foreman (~> 0.84.0)
-  highline (~> 1.7.8)
+  highline (~> 1.7.10)
   prius (~> 2.0.0)
   rake
   rspec (~> 3.7.0)

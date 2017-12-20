@@ -26,11 +26,5 @@ Style/SignalException:
 Style/Documentation:
   Enabled: false
 
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: trailing
-
-# TODO: Re-enable me when upgrading from Rubocop 0.49.0 - there is a bug in this version,
-# fixed by https://github.com/bbatsov/rubocop/issues/4412, which causes it to be broken
-# when the condition has literals on both sides, as in sidekiq_web.ru
-Style/YodaCondition:
-  Enabled: false

@@ -43,7 +43,7 @@ GEM
     powerpack (0.1.1)
     prius (2.0.0)
     public_suffix (3.0.1)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-protection (2.0.0)
       rack
     rainbow (3.0.0)
@@ -79,7 +79,7 @@ GEM
       faraday (~> 0.8, < 1.0)
     sentry-raven (2.7.2)
       faraday (>= 0.7.6, < 1.0)
-    sidekiq (5.0.5)
+    sidekiq (5.1.0)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
@@ -111,7 +111,7 @@ DEPENDENCIES
   rspec-its (~> 1.2.0)
   rubocop (~> 0.52.1)
   sentry-raven (~> 2.7.2)
-  sidekiq (~> 5.0.5)
+  sidekiq (~> 5.1.0)
   sinatra
   webmock (~> 3.3.0)
 

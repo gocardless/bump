@@ -1,10 +1,16 @@
-# Bump
+# Bump (deprecated)
 
-**Bump has now been superseded by [Dependabot](https://dependabot.com), which we recommend for all your dependency updating needs**
+> Bump was an application, created by GoCardless in 2015, which helped keep project
+> dependencies up to date.
+>
+> Since 2017, [Dependabot](https://dependabot.com) has fulfilled the same needs, whilst
+> offering a wider range of features and tools to teams and individuals.
+>
+> Since GoCardless no longer use Bump internally, this repository is no longer actively maintained. If you are interested in taking ownership of this project, please get in touch: help@gocardless.com.
 
-[![Build Status](https://circleci.com/gh/gocardless/bump/tree/master.svg?style=svg)](https://circleci.com/gh/gocardless/bump)
+---
 
-Bump helps you keep your project's Ruby (Bundler), Node (Yarn) and Python (Pip) dependencies up to date. It:
+Bump:
 
 - Checks for updates to each of your dependencies.
 - Builds an updated dependency file for each update required.
